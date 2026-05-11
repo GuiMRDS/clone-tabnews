@@ -1,4 +1,9 @@
 import database from "infra/database";
+import orchestrator from "../orchestrator.js";
+
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
+});
 
 beforeAll(cleanDatabase);
 
@@ -11,7 +16,6 @@ test("GET to /api/v1/status should return 200", async () => {
   expect(response.status).toBe(200);
 
   const responseBody = await response.json();
-  console.log(responseBody);
 
   expect(Array.isArray(responseBody)).toBe(true);
   expect(responseBody.length).toBeGreaterThan(0);
