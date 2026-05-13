@@ -15,10 +15,3 @@ test("GET to /api/v1/status should return 200", async () => {
   expect(Array.isArray(responseBody)).toBe(true);
   expect(responseBody.length).toBeGreaterThan(0);
 });
-
-/*
-test("Jest rodando em ambiente de Teste", async () => {
-  expect(process.env.NODE_ENV).toBe("test");
-  console.log(process.env.NODE_ENV);
-});
-*/

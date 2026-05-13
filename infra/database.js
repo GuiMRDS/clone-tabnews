@@ -14,7 +14,7 @@ async function query(queryObject) {
   }
 }
 
-async function getNewClient(params) {
+async function getNewClient() {
   const client = new Client({
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
@@ -33,7 +33,7 @@ export default {
   getNewClient,
 };
 
-function getSSLValues(params) {
+function getSSLValues() {
   if (process.env.POSTGRES_CA) {
     return {
       ca: process.env.POSTGRES_CA,
